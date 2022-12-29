@@ -20,10 +20,10 @@ while True:
 
     for court in courts:
         url = f'https://e-services.judiciary.hk/dcl/view.jsp?lang=tc&date={day}{month}{year}&court={court}'
+        print(f'Requesting {court}...')
         r = requests.get(url, headers=header)
         soup = BeautifulSoup(r.content, 'lxml')
         filename = f'{year}{month}{day}_{court}.html'
-        print(f'Requesting {court}...')
         if r.status_code == 200:
             print(f'Status: {r.status_code} OK')
             if len(soup.prettify()) > 20000:
