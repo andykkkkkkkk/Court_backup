@@ -33,5 +33,7 @@ while True:
                 print(f'{filename} has been saved.')
             else:
                 print(f'{filename} looks blank and is not saved.')
+        elif r.status_code == 404:
+            print(f'Status: {r.status_code} NOT FOUND\n {filename} is not downloaded.')
         else:
             print(f'Status: {r.status_code}\n {filename} is not downloaded.')
